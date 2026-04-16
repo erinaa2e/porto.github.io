@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Toko Batik Nusantara</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS (animasi on scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <!--EMAIL JS--> 
+  <script>src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <style>
+    :root{
+      --accent:#8b3e2f; /* warna batik */
+      --accent-dark:#6a2b21;
+    }
+    body{
+      font-family: 'Poppins',sans-serif;
+      scroll-behavior: smooth;
+      background: #fafafa;
+      color: #222;
+    }
+
+    /* Navbar */
+    .navbar-brand { font-weight:700; color:var(--accent) !important; }
+    .nav-link { color: #444 !important; }
+
+    /* Hero / slide sections */
+    .fullpage {
+      height: 100vh;
+      min-height:640px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+      background-size:cover;
+      background-position:center;
+      transition: background 0.8s ease;
+    }
+    .hero-overlay {
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 900px;
+      text-align:center;
+    }
+
+    /* small screens hero height */
+    @media (max-width:768px){
+      .fullpage { min-height:560px; padding: 80px 24px; }
+      .hero-overlay { padding:20px; }
+    }
+
+    /* Section wrappers */
+    section {
+      padding:80px 0;
+    }
+
+    /* Cards / gallery */
+    .card-img-top {
+      height:220px;
+      object-fit:cover;
+      transition: transform .5s ease;
+    }
+    .card:hover .card-img-top { transform: scale(1.08); }
+
+    /* overlay text on image hover */
+    .img-overlay {
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.5);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      opacity:0;
+      transition:opacity .25s ease;
+      text-align:center;
+      padding:10px;
+    }
+    .card-img-wrap { position:relative; overflow:hidden; }
+    .card-img-wrap:hover .img-overlay { opacity:1; }
+
+    /* modal order form width */
+    .modal-dialog { max-width:540px; }
+
+    /* footer */
+    footer { background:#fff; padding:24px 0; border-top:1px solid #eee; }
+
+    /* small animated arrow (scroll) */
+    .scroll-down {
+      position:absolute;
+      bottom:30px;
+      left:50%;
+      transform:translateX(-50%);
+      font-size:20px;
+      color:#fff;
+      opacity:0.9;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform:translate(-50%,0); }
+      50% { transform:translate(-50%,-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">BatikNusantara</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sejarah">Sejarah</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pengertian">Pengertian</a></li>
+        <li class="nav-item"><a class="nav-link" href="#jenis">Jenis & Asal</a></li>
+        <li class="nav-item"><a class="nav-link" href="galery-tabus-tekstil.html">Galery TaBus & Tekstil SMKN 5</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- HERO SLIDER (Bootstrap Carousel) -->
+  <header id="home" class="mb-5" style="margin-top:70px;">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="fullpage" style="background-image:url('images/background.webp')">
+            <div class="hero-overlay" data-aos="zoom-in">
+              <h1 class="display-5">Batik Nusantara — Galeri</h1>
+              <p class="lead">Koleksi batik tradisional & modern </p>
+              <div class="mt-3">
+                <a class="btn btn-lg" href="#galeri" style="background:var(--accent); color:#fff">Lihat Koleksi</a>
+               
+              </div>
+            </div>
+            <div class="scroll-down">⌄</div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="fullpage" style="background-image:url('images/keindahan_batik.jpg')">
+            <div class="hero-overlay" data-aos="fade-up">
+              <h2 class="h1">Batik dengan Filosofi</h2>
+              <p>Batik Kawung, Parang, Mega Mendung dan motif Nusantara lainnya — setiap motif punya cerita.</p>
+              <a class="btn btn-lg btn-light mt-2" href="#pengertian">Pelajari</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="fullpage" style="background-image:url('images/pembuat.webp')">
+            <div class="hero-overlay" data-aos="fade-right">
+              <h2 class="h1">Dukungan Untuk Pengrajin Lokal</h2>
+              <p>Bantu pelestarian budaya, dan dukung ekonomi kreatif.</p>
+              <a class="btn btn-lg btn-outline-light mt-2" href="#jenis">Jenis & Asal</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SEJARAH -->
+  <section id="sejarah">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6" data-aos="fade-right">
+          <img src="profil.jpg" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <h3>Sejarah Singkat Batik</h3>
+          <p>Batik merupakan warisan budaya Indonesia yang sudah ada sejak zaman kerajaan. Awalnya hanya dibuat di lingkungan keraton dengan teknik tulis menggunakan malam (lilin) dan dipakai dalam upacara adat atau sebagai simbol status sosial.
+
+Seiring waktu, batik menyebar ke berbagai daerah dengan motif khas masing-masing, seperti Parang dari Jawa, Mega Mendung dari Cirebon, hingga Lasem dari pesisir. Batik kemudian menjadi bagian penting dalam kehidupan masyarakat, baik untuk acara adat maupun pakaian sehari-hari.
+
+Pada 2 Oktober 2009, batik resmi diakui oleh UNESCO sebagai Warisan Budaya Takbenda Dunia dari Indonesia.</p>
+          <a class="btn btn-outline" href="#pengertian" style="border-color:var(--accent); color:var(--accent)">Selengkapnya</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- GALERI -->
+<section id="galeri" class="bg-light py-5">
+  <div class="container">
+    <h3 class="text-center mb-4" data-aos="fade-up">Galeri Batik</h3>
+    <div class="row g-4">
+
+      <!-- Foto 1 -->
+      <div class="col-md-4 col-sm-6" data-aos="zoom-in">
+        <div class="card shadow-sm">
+          <img src="batik_bali.jpeg" class="card-img-top" alt="Batik 1">
+        </div>
+      </div>
+
+      <!-- Foto 2 -->
+      <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="50">
+        <div class="card shadow-sm">
+          <img src="batik_kawung.webp" class="card-img-top" alt="Batik 2">
+        </div>
+      </div>
+
+      <!-- Foto 3 -->
+      <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card shadow-sm">
+          <img src="batik_parang.jpg" class="card-img-top" alt="Batik 3">
+        </div>
+      </div>
+
+      <!-- Foto 4 -->
+      <div class="col-md-4 col-sm-6" data-aos="zoom-in">
+        <div class="card shadow-sm">
+          <img src="batik_megamendung.webp" class="card-img-top" alt="Batik 4">
+        </div>
+      </div>
+
+      <!-- Foto 5 -->
+      <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="50">
+        <div class="card shadow-sm">
+          <img src="batik_garutan.jpg" class="card-img-top" alt="Batik 5">
+        </div>
+      </div>
+
+      <!-- Foto 6 -->
+      <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card shadow-sm">
+          <img src="batik_sidomukti.jpg" class="card-img-top" alt="Batik 6">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- PENGERTIAN -->
+  <section id="pengertian">
+    <div class="container">
+      <h3 class="text-center mb-4" data-aos="fade-up">Pengertian Batik</h3>
+      <div class="row">
+        <div class="col-md-8 mx-auto" data-aos="fade-up" data-aos-delay="60">
+          <p>Batik adalah kain bergambar yang pembuatannya menggunakan teknik perintang warna dengan malam (lilin) untuk membentuk motif tertentu. Batik bukan hanya sekadar kain bermotif, tetapi juga mengandung nilai seni, filosofi, dan budaya yang diwariskan turun-temurun di Indonesia.
+
+Pada perkembangannya, batik digunakan dalam berbagai aspek kehidupan, mulai dari upacara adat, busana resmi, hingga fashion modern.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- JENIS & ASAL -->
+<section id="jenis" class="bg-white">
+  <div class="container">
+    <h3 class="text-center mb-4" data-aos="fade-up">Jenis Batik & Asal</h3>
+    <div class="row g-4">
+
+      <!-- Kawung -->
+      <div class="col-md-3" data-aos="fade-up">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_garutan.jpg" class="card-img-top" alt="Batik Kawung">
+          <div class="card-body">
+            <h6 class="card-title">Batik Garutan</h6>
+            <p class="small mb-0">Asal: Garut, Jawa Barat — melambangkan keselarasan, ketenangan, dan semangat hidup pantang menyerah sesuai karakter masyarakat Sunda.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parang -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_bali.jpeg" class="card-img-top" alt="Batik Parang">
+          <div class="card-body">
+            <h6 class="card-title">Batik Bali</h6>
+            <p class="small mb-0">Asal: Bali — melambangkan kekuatan, perlindungan, dan spiritualitas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mega Mendung -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_sekarjagad.jpg" class="card-img-top" alt="Batik Mega Mendung">
+          <div class="card-body">
+            <h6 class="card-title">Batik Sekar Jagad</h6>
+            <p class="small mb-0">Asal: Yogyakarta & Solo, Jawa Tengah — melambangkan keindahan dan keragaman dunia, juga simbol keserasian dalam perbedaan. </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sogan -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_jagatanpisang.jpg" class="card-img-top" alt="Batik Sogan">
+          <div class="card-body">
+            <h6 class="card-title">Batik Jagatan Piasang</h6>
+            <p class="small mb-0">Asal: Yogyakarta — melambangkan kesuburan, kesejahteraan, dan harapan hidup makmur, terinspirasi dari bentuk pohon pisang yang bermanfaat bagi kehidupan.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lasem -->
+      <div class="col-md-3" data-aos="fade-up">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_sogan.jpg" class="card-img-top" alt="Batik Lasem">
+          <div class="card-body">
+            <h6 class="card-title">Batik Sogan</h6>
+            <p class="small mb-0">Asal: Solo & Yogyakarta — identik dengan warna cokelat sogan, melambangkan kesederhanaan, ketenangan, serta kewibawaan, dahulu sering dipakai keluarga keraton.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pekalongan -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_megamendung.webp" class="card-img-top" alt="Batik Pekalongan">
+          <div class="card-body">
+            <h6 class="card-title">Batik Mega Mendung</h6>
+            <p class="small mb-0">Asal: Cirobon, Jawa Barat — menggambarkan kesabaran, keteduhan, dan pengendalian emosi, terinspirasi dari bentuk awan yang luas dan menenangkan.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cendrawasih -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_parang.jpg" class="card-img-top" alt="Batik Cendrawasih">
+          <div class="card-body">
+            <h6 class="card-title">Batik Parang</h6>
+            <p class="small mb-0">Asal: Keraton Jawa, Solo & Yogyakarta — melambangkan kekuatan, kontinuitas, dan semangat pantang menyerah, karena bentuknya menyerupai ombak laut yang tidak pernah berhenti bergerak.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gentongan -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_sidomukti.jpg" class="card-img-top" alt="Batik Gentongan">
+          <div class="card-body">
+            <h6 class="card-title">Batik Sidomukti</h6>
+            <p class="small mb-0">Asal: Solo (Surakarta), Jawa Tengah — melambangkan harapan hidup sejahtera, bahagia, dan penuh berkecukupan, sering dipakai dalam upacara pernikahan.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidoluhur -->
+      <div class="col-md-3" data-aos="fade-up">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_tujuhrupa.jpg" class="card-img-top" alt="Batik Sidoluhur">
+          <div class="card-body">
+            <h6 class="card-title">Batik Tujuh Rupa</h6>
+            <p class="small mb-0">Asal: Pekalongan, Jawa Tengah — menggambarkan keanekaragaman budaya dan alam, biasanya bermotif bunga, burung, serta hewan, melambangkan keindahan dan harmoni kehidupan.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Priangan -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_simbut.jpg" class="card-img-top" alt="Batik Priangan">
+          <div class="card-body">
+            <h6 class="card-title">Batik Simbut</h6>
+            <p class="small mb-0">Asal: Banten — terinspirasi dari daun simbut (semacam daun talas), melambangkan kesederhanaan, kedekatan dengan alam, dan keteguhan hidup.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bali -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_singabarong.jpg" class="card-img-top" alt="Batik Bali">
+          <div class="card-body">
+            <h6 class="card-title">Batik Singabarong</h6>
+            <p class="small mb-0">Asal: Cirebon, Jawa Barat. — menampilkan wujud singa bersayap (makhluk mitologi), melambangkan kekuatan, keberanian, dan kewibawaan, sekaligus simbol perlindungan dari marabahaya.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sasambo -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="card h-100 shadow-sm">
+          <img src="batik_kawung.webp" class="card-img-top" alt="Batik Sasambo">
+          <div class="card-body">
+            <h6 class="card-title">Batik Kawung</h6>
+            <p class="small mb-0">Asal: Yogyakarta, Jawa Tengah — terinspirasi dari buah kawung (aren/kolang-kaling), melambangkan kesucian, keadilan, dan umur panjang, serta ajakan untuk selalu menjaga hati yang bersih.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  
+                
+               
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact">
+    <div class="container text-center">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-md-start" data-aos="fade-up">
+          <h5 style="color:var(--accent)">Kunjungi Sosial Media Saya</h5>
+          
+          <!-- Replace phone number (WA_PHONE) with your number e.g. 6281234567890 -->
+          
+          <a id="igQuick" class="btn btn-outline-secondary btn-sm ms-2" href="https://www.instagram.com/bngclo__?igsh=MXFwdHc4Y3hmNzA1dw==" target="_blank">Instagram</a>
+        </div>
+        <div class="col-md-6 text-md-end" data-aos="fade-up" data-aos-delay="80">
+          <small>© <span id="year"></span> BatikNusantara • Semua hak cipta dilindungi</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALS: product details -->
+ 
+
+  <!-- Modal Kawung -->
+<div class="modal fade" id="modalKawung" tabindex="-1" aria-labelledby="modalKawungLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalKawungLabel">Batik Kawung</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="batik_kawung.webp" class="img-fluid rounded mb-3" alt="Batik Kawung">
+        <p>Batik Kawung adalah salah satu motif batik tertua yang berasal dari Jawa Tengah...</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Bali -->
+<div class="modal fade" id="modalBali" tabindex="-1" aria-labelledby="modalBaliLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalBaliLabel">Batik Bali</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="batik_bali.jpeg" class="img-fluid rounded mb-3" alt="Batik Bali">
+        <p>Batik Bali terkenal dengan motif warna-warni yang cerah...</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Mega Mendung -->
+<div class="modal fade" id="modalMendung" tabindex="-1" aria-labelledby="modalMendungLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalMendungLabel">Batik Mega Mendung</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="batik_megamendung.webp" class="img-fluid rounded mb-3" alt="Batik Mega Mendung">
+        <p>Batik Mega Mendung berasal dari Cirebon dengan motif awan yang bergelombang...</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Garutan -->
+<div class="modal fade" id="modalGarutan" tabindex="-1" aria-labelledby="modalGarutanLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalGarutanLabel">Batik Garutan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="batik_garutan.jpg" class="img-fluid rounded mb-3" alt="Batik Garutan">
+        <p>Batik Garutan berasal dari Garut, Jawa Barat dengan ciri khas warna sogan dan motif geometris...</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="modal fade" id="modalMendung" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Bali</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Mega Mendung — motif awan khas Cirebon, ideal untuk dekor & pakaian kasual.</p>
+          <p><strong>Harga</strong>: Mulai Rp 120.000 • <strong>Bahan</strong>: Katun</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" style="background:var(--accent); color:#fff" onclick="openWA('Saya ingin memesan Batik Mega Mendung - ukuran:')">Pesan via WA</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="modal fade" id="modalMendung" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Mega mendung</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Mega Mendung — motif awan khas Cirebon, ideal untuk dekor & pakaian kasual.</p>
+          <p><strong>Harga</strong>: Mulai Rp 120.000 • <strong>Bahan</strong>: Katun</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" style="background:var(--accent); color:#fff" onclick="openWA('Saya ingin memesan Batik Mega Mendung - ukuran:')">Pesan via WA</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal fade" id="modalMendung" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Garutan</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Mega Mendung — motif awan khas Cirebon, ideal untuk dekor & pakaian kasual.</p>
+          <p><strong>Harga</strong>: Mulai Rp 120.000 • <strong>Bahan</strong>: Katun</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" style="background:var(--accent); color:#fff" onclick="openWA('Saya ingin memesan Batik Mega Mendung - ukuran:')">Pesan via WA</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal fade" id="modalMendung" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sidomukti</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Mega Mendung — motif awan khas Cirebon, ideal untuk dekor & pakaian kasual.</p>
+          <p><strong>Harga</strong>: Mulai Rp 120.000 • <strong>Bahan</strong>: Katun</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" style="background:var(--accent); color:#fff" onclick="openWA('Saya ingin memesan Batik Mega Mendung - ukuran:')">Pesan via WA</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ORDER MODAL (general) -->
+  <div class="modal fade" id="orderModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form onsubmit="handleOrder(event)">
+          <div class="modal-header">
+            <h5 class="modal-title">Form Pemesanan Cepat</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-2">
+              <label class="form-label">Nama</label>
+              <input id="orderName" class="form-control" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Produk</label>
+              <select id="orderProduct" class="form-select">
+                <option>Batik Parang</option>
+                <option>Batik Kawung</option>
+                <option>Batik Mega Mendung</option>
+                <option>Batik Bali</option>
+                <option>Batik Garutan</option>
+                <option>Batik Sidomukti</option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Ukuran / Catatan</label>
+              <input id="orderNote" class="form-control" placeholder="Ukuran / warna / catatan">
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Nomor WA</label>
+              <input id="orderPhone" class="form-control" placeholder="contoh: 62812xxxxxxxx" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn" style="background:var(--accent); color:#fff">Kirim Pesanan</button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Batal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    // Init AOS
+    AOS.init({ duration:900, once:true });
+
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Open WhatsApp with prefilled message
+    // Replace the sample number below (6281234567890) with your WA number if needed.
+    function openWA(message){
+      // default WA phone (replace with your number)
+      const WA_PHONE = '62895339113445';
+      const text = encodeURIComponent(message || 'Halo saya ingin memesan');
+      const url = 'https://wa.me/' + WA_PHONE + '?text=' + text;
+      window.open(url,'_blank');
+    }
+
+    // When user clicks quick order form -> send WA message using user's phone
+    function handleOrder(e){
+      e.preventDefault();
+      const name = document.getElementById('orderName').value.trim();
+      const product = document.getElementById('orderProduct').value;
+      const note = document.getElementById('orderNote').value.trim();
+      const phone = document.getElementById('orderPhone').value.trim(); // user's phone
+      if(!name || !phone){ alert('Lengkapi nama dan nomor WA.'); return; }
+      // Build WA link to merchant with order details
+      
+      const msg = `Pemesanan%20Batik%0ANama:%20${encodeURIComponent(name)}%0AProduk:%20${encodeURIComponent(product)}%0ANote:%20${encodeURIComponent(note)}%0ANomor%20WA:%20${encodeURIComponent(phone)}`;
+     
+    }
+
+      
+
+    // set footer WA/IG links (replace placeholders)
+   
+    document.getElementById('igLinkFooter').href = 'https://www.instagram.com/bngclo__?igsh=MXFwdHc4Y3hmNzA1dw==';
+   
+    document.getElementById('igQuick').href = 'https://www.instagram.com/bngclo__?igsh=MXFwdHc4Y3hmNzA1dw==';
+  </script>
+  <!-- Footer -->
+<footer class="bg-dark text-white text-center py-4 mt-5">
+  <div class="container">
+    
+    <p class="mb-1">Telp:  (0341) 478195 (SMKN 5 Malang)</p>
+    <p class="mb-3">Lokasi: Jl. Terusan Ikan Piranha Atas No.50, Tunjungsekar, Kec. Lowokwaru, Kota Malang, Jawa Timur 65142</p>
+    
+    <div>
+      <a href="https://maps.app.goo.gl/CGtYM7TFaeBJgrLe8" target="_blank" class="btn btn-outline-light btn-sm">
+        📍 Lihat di Google Maps
+      </a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
